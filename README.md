@@ -1,2 +1,2 @@
-ios-sdk-library
-===============
+CardFlight's iOS SDK Library
+============================
