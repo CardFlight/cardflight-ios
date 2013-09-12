@@ -1,291 +1,291 @@
-  .api_main
-    #docs_overview.doc
-      %h3 iOS API Reference
-      .api_section#introduction
-        .description
-          %h4 Introduction
-          %p
-            CardFlight's API is based around keeping it as simple as possible, however keeping the highest level of
-            =link_to "security", "/help/security"
-            at the forefront of all that we do. Taking out the pain of PCI-compliance when building your app.
-          %br
-          %p
-            Authentication is done through your API Keys and processing is done through the Account Tokens. All connections
-            to CardFlight's API is done through HTTPS over HSTS.
-          %br
-          %p
-            =link_to "JSON", "http://www.json.org"
-            is used where possible upon returning responses from the API, including errors.
+.api_main
+  #docs_overview.doc
+    %h3 iOS API Reference
+    .api_section#introduction
+      .description
+        %h4 Introduction
+        %p
+          CardFlight's API is based around keeping it as simple as possible, however keeping the highest level of
+          =link_to "security", "/help/security"
+          at the forefront of all that we do. Taking out the pain of PCI-compliance when building your app.
+        %br
+        %p
+          Authentication is done through your API Keys and processing is done through the Account Tokens. All connections
+          to CardFlight's API is done through HTTPS over HSTS.
+        %br
+        %p
+          =link_to "JSON", "http://www.json.org"
+          is used where possible upon returning responses from the API, including errors.
 
-      %hr
-      .api_section#errors
-        .description
-          %h4 Errors
-          %p
-            CardFlight errors are passed back whenever an issue occurs within our server API. We recommend
-            trying to gracefully handle all errors that happen to ensure a smoother user interface for your app.
-          %br
-          %p
-            All errors return a human-readable message giving more details about the error. Depending on the error, some
-            may be able to be shown directly to the user of the app.
-          %br
-          %p
-            For card errors, a short string code is passed back which is listed to the right describing the error that has occurred.
+    %hr
+    .api_section#errors
+      .description
+        %h4 Errors
+        %p
+          CardFlight errors are passed back whenever an issue occurs within our server API. We recommend
+          trying to gracefully handle all errors that happen to ensure a smoother user interface for your app.
+        %br
+        %p
+          All errors return a human-readable message giving more details about the error. Depending on the error, some
+          may be able to be shown directly to the user of the app.
+        %br
+        %p
+          For card errors, a short string code is passed back which is listed to the right describing the error that has occurred.
 
-        .summary
-          %h4 Types
-          %table.errors
-            %tbody
-              %tr
-                %td.type
-                  api_error
-                %td
-                  API errors cover any type of problem related to the API. For example an invalid Merchant Account Token,
-                  an issue processing with your merchant account, or even problem's with CardFlight's servers.
-              %tr
-                %td.type
-                  card_error
-                %td
-                  Card errors occur whenever there is an issue with processing the card details, whether it be encryption issues or
-                  invalid card details. Developers should expect to handle these types of errors in their app.
+      .summary
+        %h4 Types
+        %table.errors
+          %tbody
+            %tr
+              %td.type
+                api_error
+              %td
+                API errors cover any type of problem related to the API. For example an invalid Merchant Account Token,
+                an issue processing with your merchant account, or even problem's with CardFlight's servers.
+            %tr
+              %td.type
+                card_error
+              %td
+                Card errors occur whenever there is an issue with processing the card details, whether it be encryption issues or
+                invalid card details. Developers should expect to handle these types of errors in their app.
 
-          %br
-          %h4 Codes
-          %table.errors
-            %tbody
-              %tr
-                %td.type
-                  invalid_decryption
-                %td
-                  There was an issue with the decryption of the mag stripe data.
-              %tr
-                %td.type
-                  invalid_test_card
-                %td
-                  The card you are using for testing is invalid. ie. The card number ends in an odd number.
-
-
-      %hr
-      .api_section#setup
-        .description
-          %h4 Setup
-          %p
-            Import the 'CardFlight.h' file in any UIViewController or UIViewController subclass header file where
-            you want to access the CardFlight user interface.
-          %br
-          %p
-            You will also need to set the CardFlight delegate within the Controller.
+        %br
+        %h4 Codes
+        %table.errors
+          %tbody
+            %tr
+              %td.type
+                invalid_decryption
+              %td
+                There was an issue with the decryption of the mag stripe data.
+            %tr
+              %td.type
+                invalid_test_card
+              %td
+                The card you are using for testing is invalid. ie. The card number ends in an odd number.
 
 
-        .summary
-          %h4 Example
-          %pre.ios_code.prettyprint
-            %code
-              \#import "CardFlight.h"
-          %br
-          %pre.ios_code.prettyprint
-            %code
-              :preserve
-                @interface ViewController : UIViewController <CardFlightDelegate> {}
-
-      %hr
-      .api_section#initialization
-        .description
-          %h4 Initialization
-          %p
-            To access your CardFlight account you will need to set your Developer API key and the associated
-            Merchant Account Token that you wish to connect to when making payments.
-
-          .attributes
-            %h4 Arguments
-            %hr
-            %dl
-              %dt
-                API Token:
-              %dd
-                %span
-                  The API token for your CardFlight account that you received upon registration. This can be either a Production or Test API Key.
-              %dt
-                Account Token:
-              %dd
-                %span
-                  The Merchant Account Token you wish to process payments with.
-
-        .summary
-          %h4 Example
-          %pre.ios_code.prettyprint
-            %code
-              :preserve
-                [[CardFlight sharedInstance] setAPIToken:@"e9cb15260f08e738b782952895d4ba4f" AccountToken:@"acc_04ff8bf650afb268" andDelegate:self];
-
-      %hr
-      .api_section#swipe_card
-        .description
-          %h4 Swipe Card
-          %p
-            To Swipe a card, you first need to initiate the reader ready to accept card swipes. The reader will be on standby
-            mode for the next 10 seconds to accept a card swipe. The reader will timeout after this time and would require
-            the same function to be called again before performing a new card swipe.
-
-          .attributes
-            %h4 Arguments
-            %hr
-            %dl
-              %dt
-                dialog:
-              %dd
-                %span
-                  This is a boolean value which determines if you want to use the default dialog built within CardFlight. Set this
-                  to false and create your own custom dialog message for notifying the user that they can now swipe the card.
-
-        .summary
-          %h4 Method
-          %p="-(void)beginSwipeWithDefaultDialog:(BOOL)dialog;"
-          %br
-          %h4 Example
-          %pre.ios_code.prettyprint
-            %code
-              :preserve
-                [[CardFlight sharedInstance] beginSwipeWithDefaultDialog:YES];
-
-      %hr
-      .api_section#swipe_card_response
-        .description
-          %h4 Swipe Card Response
-          %p
-            This method will process the swiping action and return the first name, last name, and last 4 digits as <data>
-            (if the swipe was a success), or an error message if not successful(timeout, incorrect swipe, hardware error etc.)
-
-          .attributes
-            %h4 Attributes
-            %hr
-            %dl
-              %dt
-                data:
-              %dd
-                %span
-                  This is a boolean value which determines if you want to use the default dialog built within CardFlight. Set this
-                  to false and create your own custom dialog message for notifying the user that they can now swipe the card.
-              %dt
-                error:
-              %dd
-                %span
-                  This is a boolean value which determines if you want to use the default dialog built within CardFlight. Set this
-                  to false and create your own custom dialog message for notifying the user that they can now swipe the card.
-
-        .summary
-          %h4 Method
-          %p="-(void)swipeResponse:(NSData *)data andError:(NSError *)error;"
-          %br
-          %h4 Example
-          %pre.ios_code.prettyprint
-            %code
-              :preserve
-                -(void)swipeResponse:(NSData *)data andError:(NSError *)error
-                {
-                    if (!error)
-                    {
-                        NSDictionary *myDict =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-
-                        nameTextField.text = [myDict objectForKey:@"name"];
-                        numberTextField.text = [myDict objectForKey:@"card number"];
-                        expDateTextField.text = [NSString stringWithFormat:@"%@/%@", [myDict objectForKey:@"exp month"], [myDict objectForKey:@"exp year"]];
-                    }
-                    else
-                    {
-                        //Error management goes here
-                    }
-                }
-
-          %br
-
-      %hr
-      .api_section#keyed_entry
-        .description
-          %h4 Keyed Entry
-          %p
-            To use the CardFlight keyed entry facility, rather than the swiping of a card, this method will initiate the
-            keyed entry screen for entering the relevant card data.
-
-        .summary
-          %h4 Method
-          %p="-(void)startKeyedEntry;"
-          %br
-          %h4 Example
-          %pre.ios_code.prettyprint
-            %code
-              :preserve
-                [[CardFlight sharedInstance] startKeyedEntry];
+    %hr
+    .api_section#setup
+      .description
+        %h4 Setup
+        %p
+          Import the 'CardFlight.h' file in any UIViewController or UIViewController subclass header file where
+          you want to access the CardFlight user interface.
+        %br
+        %p
+          You will also need to set the CardFlight delegate within the Controller.
 
 
-      %hr
-      .api_section#keyed_response
-        .description
-          %h4 Keyed Entry Response
-          %p
-            This will return the keyed entry card details through a dictionary object. This will allow you to display the card
-            details as you please in your app. Note that full card numbers will be displayed with masked (ie. xxxx xxxx xxxx 1234)
+      .summary
+        %h4 Example
+        %pre.ios_code.prettyprint
+          %code
+            \#import "CardFlight.h"
+        %br
+        %pre.ios_code.prettyprint
+          %code
+            :preserve
+              @interface ViewController : UIViewController <CardFlightDelegate> {}
 
-          .attributes
-            %h4 Attributes
-            %hr
-            %dl
-              %dt
-                dictionary:
-              %dd
-                %span
-                  This is the dictionary object that is used to pass back the card data which is used for display purposes within
-                  your app. It contains 4 keys, that being @"name", @"number", @"expiration month", and @"expiration year"
+    %hr
+    .api_section#initialization
+      .description
+        %h4 Initialization
+        %p
+          To access your CardFlight account you will need to set your Developer API key and the associated
+          Merchant Account Token that you wish to connect to when making payments.
 
-        .summary
-          %h4 Method
-          %p="-(void)manualEntryDictionary:(NSDictionary *)dictionary;"
-          %br
-          %h4 Example
-          %pre.ios_code.prettyprint
-            %code
-              :preserve
-                -(void)manualEntryDictionary:(NSDictionary *)dictionary
-                {
-                    nameTextField.text = [dictionary objectForKey:@"name"];
-                    numberTextField.text = [dictionary objectForKey:@"number"];
-                    expDateTextField.text = [NSString stringWithFormat:@"%@/%@", [dictionary objectForKey:@"expiration month"], [dictionary objectForKey:@"expiration year"]];
-                }
+        .attributes
+          %h4 Arguments
+          %hr
+          %dl
+            %dt
+              API Token:
+            %dd
+              %span
+                The API token for your CardFlight account that you received upon registration. This can be either a Production or Test API Key.
+            %dt
+              Account Token:
+            %dd
+              %span
+                The Merchant Account Token you wish to process payments with.
+
+      .summary
+        %h4 Example
+        %pre.ios_code.prettyprint
+          %code
+            :preserve
+              [[CardFlight sharedInstance] setAPIToken:@"e9cb15260f08e738b782952895d4ba4f" AccountToken:@"acc_04ff8bf650afb268" andDelegate:self];
+
+    %hr
+    .api_section#swipe_card
+      .description
+        %h4 Swipe Card
+        %p
+          To Swipe a card, you first need to initiate the reader ready to accept card swipes. The reader will be on standby
+          mode for the next 10 seconds to accept a card swipe. The reader will timeout after this time and would require
+          the same function to be called again before performing a new card swipe.
+
+        .attributes
+          %h4 Arguments
+          %hr
+          %dl
+            %dt
+              dialog:
+            %dd
+              %span
+                This is a boolean value which determines if you want to use the default dialog built within CardFlight. Set this
+                to false and create your own custom dialog message for notifying the user that they can now swipe the card.
+
+      .summary
+        %h4 Method
+        %p="-(void)beginSwipeWithDefaultDialog:(BOOL)dialog;"
+        %br
+        %h4 Example
+        %pre.ios_code.prettyprint
+          %code
+            :preserve
+              [[CardFlight sharedInstance] beginSwipeWithDefaultDialog:YES];
+
+    %hr
+    .api_section#swipe_card_response
+      .description
+        %h4 Swipe Card Response
+        %p
+          This method will process the swiping action and return the first name, last name, and last 4 digits as <data>
+          (if the swipe was a success), or an error message if not successful(timeout, incorrect swipe, hardware error etc.)
+
+        .attributes
+          %h4 Attributes
+          %hr
+          %dl
+            %dt
+              data:
+            %dd
+              %span
+                This is a boolean value which determines if you want to use the default dialog built within CardFlight. Set this
+                to false and create your own custom dialog message for notifying the user that they can now swipe the card.
+            %dt
+              error:
+            %dd
+              %span
+                This is a boolean value which determines if you want to use the default dialog built within CardFlight. Set this
+                to false and create your own custom dialog message for notifying the user that they can now swipe the card.
+
+      .summary
+        %h4 Method
+        %p="-(void)swipeResponse:(NSData *)data andError:(NSError *)error;"
+        %br
+        %h4 Example
+        %pre.ios_code.prettyprint
+          %code
+            :preserve
+              -(void)swipeResponse:(NSData *)data andError:(NSError *)error
+              {
+                  if (!error)
+                  {
+                      NSDictionary *myDict =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+
+                      nameTextField.text = [myDict objectForKey:@"name"];
+                      numberTextField.text = [myDict objectForKey:@"card number"];
+                      expDateTextField.text = [NSString stringWithFormat:@"%@/%@", [myDict objectForKey:@"exp month"], [myDict objectForKey:@"exp year"]];
+                  }
+                  else
+                  {
+                      //Error management goes here
+                  }
+              }
+
+        %br
+
+    %hr
+    .api_section#keyed_entry
+      .description
+        %h4 Keyed Entry
+        %p
+          To use the CardFlight keyed entry facility, rather than the swiping of a card, this method will initiate the
+          keyed entry screen for entering the relevant card data.
+
+      .summary
+        %h4 Method
+        %p="-(void)startKeyedEntry;"
+        %br
+        %h4 Example
+        %pre.ios_code.prettyprint
+          %code
+            :preserve
+              [[CardFlight sharedInstance] startKeyedEntry];
 
 
-      %hr
-      .api_section#process_payment
-        .description
-          %h4 Process Payment
-          %p
-            Use this method to process a payment to your merchant account. If in test mode, this method will simple return a
-            success object and create a transaction for the relevant merchant account. Otherwise within production mode, this
-            will actually charge the consumers card with the desired amount.
+    %hr
+    .api_section#keyed_response
+      .description
+        %h4 Keyed Entry Response
+        %p
+          This will return the keyed entry card details through a dictionary object. This will allow you to display the card
+          details as you please in your app. Note that full card numbers will be displayed with masked (ie. xxxx xxxx xxxx 1234)
 
-          .attributes
-            %h4 Attributes
-            %hr
-            %dl
-              %dt
-                transaction:
-              %dd
-                %span
-                  This is NSDictionary that contains a float amount (required) and 2 strings description (optional) and currency (optional).
+        .attributes
+          %h4 Attributes
+          %hr
+          %dl
+            %dt
+              dictionary:
+            %dd
+              %span
+                This is the dictionary object that is used to pass back the card data which is used for display purposes within
+                your app. It contains 4 keys, that being @"name", @"number", @"expiration month", and @"expiration year"
 
-        .summary
-          %h4 Method
-          %p="-(void)processPaymentWithTransaction:(NSDictionary *)transaction;"
-          %br
-          %h4 Example
-          %pre.ios_code.prettyprint
-            %code
-              :preserve
-                NSMutableDictionary *transaction = [NSMutableDictionary dictionary];
+      .summary
+        %h4 Method
+        %p="-(void)manualEntryDictionary:(NSDictionary *)dictionary;"
+        %br
+        %h4 Example
+        %pre.ios_code.prettyprint
+          %code
+            :preserve
+              -(void)manualEntryDictionary:(NSDictionary *)dictionary
+              {
+                  nameTextField.text = [dictionary objectForKey:@"name"];
+                  numberTextField.text = [dictionary objectForKey:@"number"];
+                  expDateTextField.text = [NSString stringWithFormat:@"%@/%@", [dictionary objectForKey:@"expiration month"], [dictionary objectForKey:@"expiration year"]];
+              }
 
-                [transaction setObject:descriptionTextField.text forKey:@"description"];
-                [transaction setObject:[NSNumber numberWithFloat:priceTextField.text.floatValue] forKey:@"amount"];
-                [transaction setObject:currencyTextField.text forKey:@"currency"];
 
-                [[CardFlight sharedInstance] processPaymentWithTransaction:transaction];
+    %hr
+    .api_section#process_payment
+      .description
+        %h4 Process Payment
+        %p
+          Use this method to process a payment to your merchant account. If in test mode, this method will simple return a
+          success object and create a transaction for the relevant merchant account. Otherwise within production mode, this
+          will actually charge the consumers card with the desired amount.
+
+        .attributes
+          %h4 Attributes
+          %hr
+          %dl
+            %dt
+              transaction:
+            %dd
+              %span
+                This is NSDictionary that contains a float amount (required) and 2 strings description (optional) and currency (optional).
+
+      .summary
+        %h4 Method
+        %p="-(void)processPaymentWithTransaction:(NSDictionary *)transaction;"
+        %br
+        %h4 Example
+        %pre.ios_code.prettyprint
+          %code
+            :preserve
+              NSMutableDictionary *transaction = [NSMutableDictionary dictionary];
+
+              [transaction setObject:descriptionTextField.text forKey:@"description"];
+              [transaction setObject:[NSNumber numberWithFloat:priceTextField.text.floatValue] forKey:@"amount"];
+              [transaction setObject:currencyTextField.text forKey:@"currency"];
+
+              [[CardFlight sharedInstance] processPaymentWithTransaction:transaction];
 
 
