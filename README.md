@@ -32,17 +32,17 @@ You will also need to set the CardFlight delegate within the Controller.
 SDK Documentation
 --------------
 
-Click on the topics below to learn more about our SDK. 
+Click on the topics below to learn more about our SDK.
 
 | Topics | 
 | ------------ | 
-| [Errors](https://developers.getcardflight.com/docs/api#errors) | 
-| [Initialization](https://developers.getcardflight.com/docs/api#initialization)| 
+| [Errors](https://developers.getcardflight.com/docs/api#errors) |
+| [Initialization](https://developers.getcardflight.com/docs/api#initialization)|
 | [Swipe Card](https://developers.getcardflight.com/docs/api#swipe_card)| 
-| [Swipe Response](https://developers.getcardflight.com/docs/api#swipe_card_response)| 
-| [Keyed Entry](https://developers.getcardflight.com/docs/api#keyed_entry)| 
-| [Keyed Response](https://developers.getcardflight.com/docs/api#keyed_response)| 
-| [Proces Payment](https://developers.getcardflight.com/docs/api#process_payment)| 
+| [Swipe Response](https://developers.getcardflight.com/docs/api#swipe_card_response)|
+| [Keyed Entry](https://developers.getcardflight.com/docs/api#keyed_entry)|
+| [Keyed Response](https://developers.getcardflight.com/docs/api#keyed_response)|
+| [Process Payment](https://developers.getcardflight.com/docs/api#process_payment)|
 
 
 Supported Platforms
@@ -54,7 +54,7 @@ Our SDK supports a wide array of iOS platforms. [Click here](https://developers.
 Looking for Android?
 -----------------
 
-We've got you covered. [Click here](http://#) to learn more about our Android SDK. 
+We've got you covered. [Click here](https://github.com/CardFlight/cardflight-android) to learn more about our Android SDK. 
 
 
 Questions?
