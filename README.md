@@ -60,4 +60,4 @@ We've got you covered. [Click here](https://github.com/CardFlight/cardflight-and
 Questions?
 --------
 
-CardFlight is currently in private beta. If you would like to get a hold of our private beta, register here at https://getcardflight.com or email at devs@getcardflight.com . In the meantime, please watch this repo as well will be pushing our first version very soon.
+CardFlight is currently in private beta. If you would like to get a hold of our private beta, register here at https://getcardflight.com or email at devs@getcardflight.com. In the meantime, please watch this repo as well will be pushing our first version very soon.
