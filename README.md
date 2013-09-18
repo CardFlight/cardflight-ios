@@ -19,7 +19,7 @@ Authenticationis done thorugh your API Keys and processing is done through the A
 Setup
 ----------
 
-Add the files **CardFlight-iOS.a** and **CardFlight.h** files into your project. Add the following framewowrks to you project:
+Add the files **CardFlight-iOS.a** and **CardFlight.h** files into your project. Add the following frameworks to you project:
 
 - AVFoundation.framework 
 - AudioToolbox.framework 
