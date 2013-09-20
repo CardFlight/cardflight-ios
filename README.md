@@ -1,6 +1,7 @@
 CardFlight's iOS SDK Library
 =================
 
+*CardFlight is currently in private beta. If you would like to get ahold of our private beta, Request Access at [https://getcardflight.com](https://getcardflight.com/) or email [devs@getcardflight.com](mailto: devs@getcardflight.com).*
 
 Introduction
 ------------
@@ -67,7 +68,3 @@ Looking for Android?
 We've got you covered. [Click here](https://github.com/CardFlight/cardflight-android) to learn more about our CardFlight Android SDK. 
 
 
-Questions?
---------
-
-*CardFlight is currently in private beta. If you would like to get a hold of our private beta, register here at [https://getcardflight.com](https://getcardflight.com/request_access) or email at [devs@getcardflight.com](mailto: devs@getcardflight.com). In the meantime, please watch this repo as well will be pushing our first version very soon.*
