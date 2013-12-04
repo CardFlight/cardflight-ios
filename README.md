@@ -1,8 +1,6 @@
 CardFlight's iOS SDK Library
 =================
 
-*CardFlight is currently in private beta. If you would like to get ahold of our private beta, Request Access at [https://getcardflight.com](https://getcardflight.com/) or email [devs@getcardflight.com](mailto: devs@getcardflight.com).*
-
 Introduction
 ------------
 
@@ -13,9 +11,6 @@ CardFlight's SDK's is based around keeping it as simple as possible, however kee
 Authenticationis done thorugh your API Keys and processing is done through the Account Tokens. All connections to CardFlight's API id done thorugh HTTPS over HSTS.
 
 [JSON](http://www.json.org) is used where possible upon returning responses from the API, including errors.
-
-
-*CardFlight is currently in private beta. If you would like to get a hold of our private beta, register here at [https://getcardflight.com](https://getcardflight.com/request_access) or email at [devs@getcardflight.com](mailto: devs@getcardflight.com). In the meantime, please watch this repo as well will be pushing our first version very soon.*
 
 Setup
 ----------
