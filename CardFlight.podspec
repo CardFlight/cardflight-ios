@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'AVFoundation', 'AudioToolbox', 'MediaPlayer', 'MessageUI'
   s.library = 'CardFlightLibrary'
-  s.vendored_library = "libCardFlightLibrary.a"
+  s.vendored_library = "libCardFlightLibrary"
 
   # s.requires_arc = true
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CardFlight"' }
