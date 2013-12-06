@@ -38,6 +38,7 @@ typedef enum CFCardType {
 @property (nonatomic) CFCardType cardType;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *encryptedCardNumber;
+@property (nonatomic) NSString *cardToken;
 
 /**
  * Convenience method to check that the credit card number is formatted
@@ -63,7 +64,7 @@ typedef enum CFCardType {
 - (BOOL)isCVVValid;
 
 /**
- * Call to charge a card with the details in the chargeDictionary
+ * Method to charge a card with the details in the chargeDictionary
  *
  * chargeDictionary parameters:
  *      amount - NSDecimalNumber containing amount to charge
@@ -74,5 +75,13 @@ typedef enum CFCardType {
 - (void)chargeCardWithParameters:(NSDictionary *)chargeDictionary
                          success:(void(^)(CFTCharge *charge))success
                          failure:(void(^)(NSError *error))failure;
+
+/**
+ * Method to create a card token that can be saved and used later.
+ * On success the cardToken variable contains a value that can
+ * be stored and used later.
+ */
+- (void)tokenizeCardWithSuccess:(void(^)(void))success
+                        failure:(void(^)(NSError *error))failure;
 
 @end
