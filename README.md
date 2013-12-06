@@ -26,7 +26,7 @@ pod "CardFlight"
 
 ### Manual Installation
 
-Add the **CardFlight-iOS.a** and all header files into your project. Add the following frameworks to you project:
+Add the **libCardFlightLibrary.a** and all header files into your project. Add the following frameworks to you project:
 
 - AVFoundation.framework 
 - AudioToolbox.framework 
