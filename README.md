@@ -34,6 +34,8 @@ Add the **libCardFlightLibrary.a** and all header files into your project. Add t
 - MessageUI.framework 
 - CoreGraphics.framework
 
+### Initialize
+
 Add **CardFlight.h** to your AppDelegate and set the API Key and Account Token.
 
 ##### Example
