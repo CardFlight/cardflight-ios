@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CardFlight"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "CardFlight's iOS SDK Library"
   s.homepage     = "https://getcardflight.com"
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "CardFlight" => "support@getcardflight.com" }
   s.platform     = :ios, '4.0'
-  s.source       = { :git => "https://github.com/CardFlight/cardflight-ios.git", :tag => "1.0.1" }
+  s.source       = { :git => "https://github.com/CardFlight/cardflight-ios.git", :tag => "1.0.2" }
 
   s.source_files  = '*.{h,m}'
   s.preserve_paths = 'libCardFlightLibrary.a'
