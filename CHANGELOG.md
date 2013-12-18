@@ -1,3 +1,8 @@
+### 1.1.0
+
+* Added support for new readers
+* Added support for timeout duration
+
 ### 1.0.2
 
 * Fixes bug with errors returning nil
