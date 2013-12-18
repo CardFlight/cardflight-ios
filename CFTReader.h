@@ -73,11 +73,24 @@
 - (id)initAndConnect;
 
 /**
+ * Optional method to set the duration before a swipe command will
+ * timeout. Setting the duration to 0 will cause the swipe to never
+ * timeout.
+ */
+- (void)swipeTimeoutDuration:(NSInteger)duration;
+
+/**
  * Set the hardware reader to begin waiting to receive a swipe.
  * message sets an optional display message while the reader is waiting
  * to receive data.
  */
 - (void)beginSwipeWithMessage:(NSString *)message;
+
+/**
+ * Manually cancel the swipe process before the timeout duration has
+ * been reached.
+ */
+- (void)cancelSwipeWithMessage:(NSString *)message;
 
 /**
  * Manually attempt the connection process with the hardware reader.
