@@ -25,7 +25,7 @@
  * reader has received a complete swipe. Returns a CFTCard object
  * with success and a NSError on failure.
  */
-- (void)readerResponse:(CFTCard *)card withError:(NSError *)error;
+- (void)readerCardResponse:(CFTCard *)card withError:(NSError *)error;
 
 @optional
 
@@ -47,6 +47,12 @@
  * the NSError object will contain the description.
  */
 - (void)readerIsConnected:(BOOL)isConnected withError:(NSError *)error;
+
+/**
+ * Optional protocol method that gets called in a non credit card is
+ * swiped. The raw data from swipe is passed without any processing.
+ */
+- (void)readerGenericResponse:(NSString *)cardData;
 
 /**
  * Optional protocol method that gets called after the hardware reader

@@ -1,3 +1,8 @@
+### 1.1.1
+
+* Added support for reading swipes from generic cards
+* Fixed tokenization card errors
+
 ### 1.1.0
 
 * Added support for new readers
