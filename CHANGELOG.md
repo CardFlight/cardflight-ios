@@ -1,3 +1,7 @@
+### 1.1.2
+
+* Fixed url encoding of transaction descriptions
+
 ### 1.1.1
 
 * Added support for reading swipes from generic cards
