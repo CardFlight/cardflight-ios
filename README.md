@@ -33,6 +33,7 @@ Add the **libCardFlightLibrary.a** and all header files into your project. Add t
 - MediaPlayer.framework 
 - MessageUI.framework 
 - CoreGraphics.framework
+- ExternalAccessory.framework
 
 ### Initialize
 
