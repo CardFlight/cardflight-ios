@@ -1,3 +1,9 @@
+### 1.1.3
+
+* Added callback for user cancelled swipe
+* Fixed callback for reader timeout
+* Fixed ability to change account token
+
 ### 1.1.2
 
 * Fixed url encoding of transaction descriptions
