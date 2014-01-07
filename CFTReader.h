@@ -66,6 +66,12 @@
  */
 - (void)readerSerialNumber:(NSString *)serialNumber;
 
+/**
+ * Optional protocol method that gets called after the user cancels
+ * a swipe.
+ */
+- (void)readerSwipeDidCancel;
+
 @end
 
 @interface CFTReader : NSObject
