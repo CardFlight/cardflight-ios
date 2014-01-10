@@ -43,4 +43,10 @@
 - (void)setApiToken:(NSString *)cardFlightApiToken
        accountToken:(NSString *)cardFlightAccountToken;
 
+/**
+ * Pass YES to enable developer logging mode
+ * This should always be set to NO for release
+ */
+- (void)setLogging:(BOOL)logging;
+
 @end

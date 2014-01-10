@@ -41,6 +41,7 @@
 - (void)customFieldKeyboardType:(UIKeyboardType)newKeyboard;
 - (void)customFieldKeyboardAppearance:(UIKeyboardAppearance)newKeyboardAppearance;
 - (void)customFieldReturnKeyType:(UIReturnKeyType)newReturnKeyType;
+- (void)customFieldBecomeFirstResponder;
 - (void)customFieldResignFirstResponder;
 
 @end

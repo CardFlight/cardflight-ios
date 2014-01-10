@@ -1,3 +1,9 @@
+### 1.2
+
+* Added logging mode for debugging
+* Added becomeFirstResponder forwarder
+* Added textFieldShouldReturn protocol method
+
 ### 1.1.3
 
 * Added callback for user cancelled swipe

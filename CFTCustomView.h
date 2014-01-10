@@ -23,8 +23,20 @@
 @class CFTCard;
 @class CFTCustomEntryTextField;
 
+@protocol customEntryDelegate <NSObject>
+
+@optional
+/**
+ * Optional protocol method that gets called when the private
+ * text fields call textFieldShouldReturn
+ */
+- (BOOL)customTextFieldShouldReturn:(NSInteger)textFieldTag;
+
+@end
+
 @interface CFTCustomView : UIView
 
+@property (nonatomic, weak) id<customEntryDelegate> delegate;
 @property (nonatomic) CFTCustomEntryTextField *cardNumber;
 @property (nonatomic) CFTCustomEntryTextField *expirationDate;
 @property (nonatomic) CFTCustomEntryTextField *cvvNumber;
