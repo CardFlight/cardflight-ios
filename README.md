@@ -35,6 +35,10 @@ Add the **libCardFlightLibrary.a** and all header files into your project. Add t
 - CoreGraphics.framework
 - ExternalAccessory.framework
 
+### Logging
+
+The SDK includes a logging mode to assist with debugging that will print out statements in the console. Be sure to disable it in the production code.
+
 ### Initialize
 
 Add **CardFlight.h** to your AppDelegate and set the API Key and Account Token.
