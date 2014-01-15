@@ -1,3 +1,8 @@
+### 1.3.0
+* Added name field for custom manual entry
+* Added text field delegate forwarders for custom manual entry
+* Bugfixes
+
 ### 1.2
 
 * Added logging mode for debugging
