@@ -1,3 +1,8 @@
+### 1.4.0
+* Added 64 bit support
+* Added flag for attache reader
+* Deprecated connect and disconnect methods
+
 ### 1.3.0
 * Added name field for custom manual entry
 * Added text field delegate forwarders for custom manual entry

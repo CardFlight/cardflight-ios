@@ -44,9 +44,15 @@
        accountToken:(NSString *)cardFlightAccountToken;
 
 /**
- * Pass YES to enable developer logging mode
+ * Pass YES to enable developer logging mode to the console.
  * This should always be set to NO for release
  */
 - (void)setLogging:(BOOL)logging;
+
+/**
+ * Pass YES to this method to enable lightning connector mode
+ * for the attache reader. The default is NO
+ */
+- (void)setAttacheReader:(BOOL)isAttache;
 
 @end
