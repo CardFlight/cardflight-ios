@@ -32,6 +32,10 @@
 - (void)customFieldText:(NSString *)newText;
 - (void)customFieldTag:(NSInteger)newTag;
 - (void)customFieldBackground:(UIImage *)newBackground;
+- (void)customFieldLeftView:(UIView *)newView;
+- (void)customFieldLeftViewMode:(UITextFieldViewMode)newViewMode;
+- (void)customFieldRightView:(UIView *)newView;
+- (void)customFieldRightViewMode:(UITextFieldViewMode)newViewMode;
 - (void)customFieldFont:(UIFont *)newFont;
 - (void)customFieldTextColor:(UIColor *)newColor;
 - (void)customFieldPlaceholder:(NSString *)newPlaceholder;
