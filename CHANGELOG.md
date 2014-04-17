@@ -1,3 +1,10 @@
+### 1.5.0
+* Changed custom manual entry to unified field
+* Added manual entry protocol
+* Deprecated old version of manual entry
+* Added support for NSCopying of CFTCard
+* Change readerDelegate to CFTReaderDelegate
+
 ### 1.4.0
 * Added 64 bit support
 * Added flag for attache reader

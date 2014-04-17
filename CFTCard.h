@@ -9,10 +9,6 @@
  * Charges are called on the specific card they are to be applied
  * to. A CFTCharge object is returned.
  *
- * Contains convenience validation methods that can optionally
- * be called for client-side validation of card formats during
- * manual entry.
- *
  * Copyright (c) 2013 CardFlight Inc. All rights reserved.
  *****************************************************************
  */
@@ -30,38 +26,12 @@ typedef enum CFCardType {
     JCB
 } CFCardType;
 
-@interface CFTCard : CFTAPIResource
+@interface CFTCard : CFTAPIResource <NSCopying>
 
-@property (nonatomic) NSString *last4;
-@property (nonatomic) NSInteger expirationMonth;
-@property (nonatomic) NSInteger expirationYear;
-@property (nonatomic) CFCardType cardType;
+@property (nonatomic, readonly) NSString *last4;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *encryptedCardNumber;
 @property (nonatomic) NSString *cardToken;
-
-/**
- * Convenience method to check that the credit card number is formatted
- * properly using Luhn validation.
- * Client-side validation only, it checks that the format is valid, not
- * that the value is correct.
- */
-- (BOOL)isNumberValid;
-
-/**
- * Convenience method to check that the expiration date is formatted properly
- * and is not in the past.
- * Client-side validation only, it checks that the format is valid, not
- * that the value is correct.
- */
-- (BOOL)isExpirationDateValid;
-
-/**
- * Convenience method to check if the CVV number is formatted properly
- * Client-side validation only, it checks that the format is valid, not
- * that the value is correct.
- */
-- (BOOL)isCVVValid;
 
 /**
  * Method to charge a card with the details in the chargeDictionary
@@ -83,5 +53,37 @@ typedef enum CFCardType {
  */
 - (void)tokenizeCardWithSuccess:(void(^)(void))success
                         failure:(void(^)(NSError *error))failure;
+
+// ******************** DEPRECATED ********************
+
+@property (nonatomic) NSInteger expirationMonth;
+@property (nonatomic) NSInteger expirationYear;
+@property (nonatomic) CFCardType cardType;
+
+/**
+ * Convenience method to check that the credit card number is formatted
+ * properly using Luhn validation.
+ * Client-side validation only, it checks that the format is valid, not
+ * that the value is correct.
+ * THIS WILL BE REMOVED IN A LATER RELEASE
+ */
+- (BOOL)isNumberValid;
+
+/**
+ * Convenience method to check that the expiration date is formatted properly
+ * and is not in the past.
+ * Client-side validation only, it checks that the format is valid, not
+ * that the value is correct.
+ * THIS WILL BE REMOVED IN A LATER RELEASE
+ */
+- (BOOL)isExpirationDateValid;
+
+/**
+ * Convenience method to check if the CVV number is formatted properly
+ * Client-side validation only, it checks that the format is valid, not
+ * that the value is correct.
+ * THIS WILL BE REMOVED IN A LATER RELEASE
+ */
+- (BOOL)isCVVValid;
 
 @end
