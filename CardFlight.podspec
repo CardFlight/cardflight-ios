@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CardFlight"
-  s.version      = "1.5.0"
+  s.version      = "1.5.1"
   s.summary      = "CardFlight's iOS SDK Library"
   s.homepage     = "https://getcardflight.com"
 
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.library = 'CardFlightLibrary'
   s.vendored_library = "libCardFlightLibrary.a"
 
-  # s.requires_arc = true
+  s.requires_arc = true
   s.xcconfig  =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CardFlight"' }
 
 end
