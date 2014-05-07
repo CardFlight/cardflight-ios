@@ -1,3 +1,8 @@
+### 1.5.2
+* Added NSCoding support
+* Added keyboard appearance convienence method
+* Removed extraneous NSLog statements
+
 ### 1.5.0
 * Changed custom manual entry to unified field
 * Added manual entry protocol

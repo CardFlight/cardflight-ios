@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CardFlight"
-  s.version      = "1.5.1"
+  s.version      = "1.5.2"
   s.summary      = "CardFlight's iOS SDK Library"
   s.homepage     = "https://getcardflight.com"
 
