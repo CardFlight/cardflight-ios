@@ -31,7 +31,7 @@ typedef enum CFCardType {
 @property (nonatomic, readonly) NSString *last4;
 @property (nonatomic) CFCardType cardType;
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString *encryptedCardNumber;
+@property (nonatomic) NSString *encryptedSwipedCardNumber;
 @property (nonatomic) NSString *cardToken;
 
 /**
@@ -56,6 +56,12 @@ typedef enum CFCardType {
  */
 - (void)tokenizeCardWithSuccess:(void(^)(void))success
                         failure:(void(^)(NSError *error))failure;
+
+
+/**
+ * Internal use only
+ */
+- (NSDictionary *)dictionaryData:(NSData *)parameter;
 
 // ******************** DEPRECATED ********************
 

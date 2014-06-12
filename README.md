@@ -24,6 +24,13 @@ platform :ios, '7.0'
 pod "CardFlight"
 ```
 
+If you want to use the Attache reader (30 pin or lightning) then you must use the Attache subspec of the pod
+
+```ruby
+platform :ios, '7.0'
+pod "CardFlight/Attache"
+```
+
 ### Manual Installation
 
 Add the **libCardFlightLibrary.a** and all header files into your project. Add the following frameworks to you project:

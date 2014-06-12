@@ -11,7 +11,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "CardFlight.h"
+#import "CFTSessionManager.h"
 #import "CFTAPIResource.h"
 
 @interface CFTCharge : CFTAPIResource
@@ -20,6 +20,7 @@
 @property (nonatomic) NSString *token;
 @property (nonatomic) NSString *referenceID;
 @property (nonatomic) BOOL isRefunded;
+@property (nonatomic) BOOL isVoided;
 @property (nonatomic) NSDecimalNumber *amountRefunded;
 @property (nonatomic) NSDate *created;
 
@@ -34,5 +35,11 @@
 - (void)refundChargeWithParameters:(NSDictionary *)chargeDictionary
                            success:(void(^)())success
                            failure:(void(^)(NSError *error))failure;
+
+/**
+ * Void a charge and post to the CardFlight servers
+ */
+- (void)voidChargeWithSuccess:(void(^)())success
+                      failure:(void(^)(NSError *error))failure;
 
 @end

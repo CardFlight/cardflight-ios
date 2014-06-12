@@ -1,3 +1,7 @@
+### 1.6
+* Changed to subspec for Attache reader class (pod 'CardFlight/Attache')
+* Added Void function
+
 ### 1.5.0
 * Changed custom manual entry to unified field
 * Added manual entry protocol
