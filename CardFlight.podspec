@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
   s.preserve_paths        = 'libCardFlightLibrary.a'
   s.frameworks            = 'AVFoundation', 'AudioToolbox', 'MediaPlayer', 'MessageUI'
   s.library               = 'CardFlightLibrary'
-  s.vendored_library      = 'libCardFlightLibrary.a'
   s.requires_arc          = true
   s.xcconfig              =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CardFlight"' }
   s.default_subspec       = 'AudioJack'
@@ -20,16 +19,18 @@ Pod::Spec.new do |s|
   }
 
   s.subspec 'AudioJack' do |audiojack|
-    audiojack.source_files  = '*.{h,m}'
-    audiojack.exclude_files = 'CFTAttacheReader.h', 'libCardFlightAttacheLibrary.a'
-    audiojack.requires_arc  = true
+    audiojack.source_files          = '*.{h,m}'
+    audiojack.vendored_library      = 'libCardFlightLibrary.a'
+    audiojack.exclude_files         = 'CFTAttacheReader.h', 'libCardFlightAttacheLibrary.a'
+    audiojack.requires_arc          = true
   end
 
   s.subspec 'Attache' do |attache|
-    attache.source_files    = '*.{h,m}'
-    attache.exclude_files   = 'CFTReader.h', 'libCardFlightLibrary.a'
-    attache.framework       = 'ExternalAccessory'
-    attache.requires_arc    = true
+    attache.source_files            = '*.{h,m}'
+    attache.vendored_library        = 'libCardFlightAttacheLibrary.a'
+    attache.exclude_files           = 'CFTReader.h', 'libCardFlightLibrary.a'
+    attache.framework               = 'ExternalAccessory'
+    attache.requires_arc            = true
   end
 
 end
