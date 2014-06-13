@@ -1,5 +1,9 @@
+### 1.6.1
+* Created separate static libraries for shuttle and attache readers
+
 ### 1.6
 * Changed to subspec for Attache reader class (pod 'CardFlight/Attache')
+* Changed CardFlight class to CFTSessionManager
 * Added Void function
 
 ### 1.5.0

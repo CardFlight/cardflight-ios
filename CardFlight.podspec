@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "CardFlight"
-  s.version               = "1.6"
+  s.version               = "1.6.1"
   s.summary               = "CardFlight's iOS SDK Library"
   s.homepage              = "https://getcardflight.com"
   s.author                = { "CardFlight" => "support@getcardflight.com" }
@@ -21,13 +21,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'AudioJack' do |audiojack|
     audiojack.source_files  = '*.{h,m}'
-    audiojack.exclude_files = 'CFTAttacheReader.h'
+    audiojack.exclude_files = 'CFTAttacheReader.h', 'libCardFlightAttacheLibrary.a'
     audiojack.requires_arc  = true
   end
 
   s.subspec 'Attache' do |attache|
     attache.source_files    = '*.{h,m}'
-    attache.exclude_files   = 'CFTReader.h'
+    attache.exclude_files   = 'CFTReader.h', 'libCardFlightLibrary.a'
     attache.framework       = 'ExternalAccessory'
     attache.requires_arc    = true
   end
