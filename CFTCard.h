@@ -32,6 +32,7 @@ typedef enum CFCardType {
 @property (nonatomic) CFCardType cardType;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *encryptedSwipedCardNumber;
+@property (nonatomic) NSData *encryptedSwipeData;
 @property (nonatomic) NSString *cardToken;
 
 /**

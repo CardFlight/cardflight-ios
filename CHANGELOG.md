@@ -1,3 +1,6 @@
+### 1.6.2
+* Exposed encrypted swipe data
+
 ### 1.6.1
 * Created separate static libraries for shuttle and attache readers
 
