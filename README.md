@@ -76,7 +76,7 @@ SDK Documentation
 Supported Platforms
 -----------------------
 
-All CardFlight readers work on **iOS version 5.0 or above**. Our SDK supports a wide array of iOS platforms. [Click here](https://developers.getcardflight.com/docs/ios) to view an updated list.
+All CardFlight readers work on **iOS version 6.1 or above**. Our SDK supports a wide array of iOS platforms. [Click here](https://developers.getcardflight.com/docs/ios) to view an updated list.
 
 
 Looking for Android?
