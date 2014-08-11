@@ -76,7 +76,7 @@ typedef enum CFCardType {
  * that the value is correct.
  * THIS WILL BE REMOVED IN A LATER RELEASE
  */
-- (BOOL)isNumberValid;
+- (BOOL)isNumberValid __attribute__((deprecated));
 
 /**
  * Convenience method to check that the expiration date is formatted properly
@@ -85,7 +85,7 @@ typedef enum CFCardType {
  * that the value is correct.
  * THIS WILL BE REMOVED IN A LATER RELEASE
  */
-- (BOOL)isExpirationDateValid;
+- (BOOL)isExpirationDateValid __attribute__((deprecated));
 
 /**
  * Convenience method to check if the CVV number is formatted properly
@@ -93,6 +93,6 @@ typedef enum CFCardType {
  * that the value is correct.
  * THIS WILL BE REMOVED IN A LATER RELEASE
  */
-- (BOOL)isCVVValid;
+- (BOOL)isCVVValid __attribute__((deprecated));
 
 @end

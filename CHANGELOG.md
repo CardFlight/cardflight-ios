@@ -1,3 +1,8 @@
+### 1.6.3
+* Added ability to copy and serialize CFTCharge
+* Improved deprecation warnings
+* Updated documentation
+
 ### 1.6.2
 * Exposed encrypted swipe data
 

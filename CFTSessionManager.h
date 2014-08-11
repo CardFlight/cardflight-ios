@@ -55,6 +55,6 @@
  * Pass YES to this method to enable lightning connector mode
  * for the attache reader. The default is NO
  */
-- (void)setAttacheReader:(BOOL)isAttache;
+- (void)setAttacheReader:(BOOL)isAttache __attribute__((deprecated));
 
 @end

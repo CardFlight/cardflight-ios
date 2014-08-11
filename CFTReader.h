@@ -50,12 +50,12 @@
  * Manually attempt the connection process with the hardware reader.
  * THIS WILL BE REMOVED IN A LATER RELEASE
  */
-- (void)connect;
+- (void)connect __attribute__((deprecated));
 
 /**
  * Manually attempt the disconnect process with the hardware reader.
  * THIS WILL BE REMOVED IN A LATER RELEASE
  */
-- (void)disconnect;
+- (void)disconnect __attribute__((deprecated));
 
 @end

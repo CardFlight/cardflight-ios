@@ -33,6 +33,12 @@
 - (void)resignAll;
 
 /**
+ * Clears all the input from the textfields and returns it to its
+ * initial state.
+ */
+- (void)clearInput;
+
+/**
  * Assigns a UIKeyboardAppearance to the custom manual entry textfields.
  * UIKeyboardAppearanceDefault is used by default.
  */
@@ -74,6 +80,6 @@
  * and returns a CFTCard object.
  * THIS WILL BE REMOVED IN A LATER RELEASE
  */
-- (CFTCard *)generateCard;
+- (CFTCard *)generateCard __attribute__((deprecated));
 
 @end
