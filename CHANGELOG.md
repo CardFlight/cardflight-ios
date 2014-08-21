@@ -1,3 +1,7 @@
+### 1.7.0
+* Added metadata to charges
+* Created new refund method
+
 ### 1.6.3
 * Added ability to copy and serialize CFTCharge
 * Improved deprecation warnings

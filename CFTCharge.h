@@ -23,6 +23,24 @@
 @property (nonatomic) BOOL isVoided;
 @property (nonatomic) NSDecimalNumber *amountRefunded;
 @property (nonatomic) NSDate *created;
+@property (nonatomic) NSDictionary *metadata;
+
+/**
+ * Refund a charge by passing in the charge token
+ * and amount to refund.
+ */
++ (void)refundChargeWithToken:(NSString *)token
+                    andAmount:(NSDecimalNumber *)amount
+                      success:(void(^)(CFTCharge *charge))success
+                      failure:(void(^)(NSError *error))failure;
+
+/**
+ * Void a charge and post to the CardFlight servers
+ */
+- (void)voidChargeWithSuccess:(void(^)())success
+                      failure:(void(^)(NSError *error))failure;
+
+// ******************** DEPRECATED ********************
 
 /**
  * Refund a charge and post to the CardFlight servers
@@ -35,11 +53,5 @@
 - (void)refundChargeWithParameters:(NSDictionary *)chargeDictionary
                            success:(void(^)())success
                            failure:(void(^)(NSError *error))failure;
-
-/**
- * Void a charge and post to the CardFlight servers
- */
-- (void)voidChargeWithSuccess:(void(^)())success
-                      failure:(void(^)(NSError *error))failure;
 
 @end
