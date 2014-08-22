@@ -27,7 +27,7 @@
 
 /**
  * Refund a charge by passing in the charge token
- * and amount to refund.
+ * and amount to refund in dollars and cents.
  */
 + (void)refundChargeWithToken:(NSString *)token
                     andAmount:(NSDecimalNumber *)amount

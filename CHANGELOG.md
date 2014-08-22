@@ -1,3 +1,6 @@
+### 1.7.1
+* Fixed bug with refund amount, now accepts amounts in dollar and cents
+
 ### 1.7.0
 * Added metadata to charges
 * Created new refund method
