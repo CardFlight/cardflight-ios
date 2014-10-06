@@ -1,3 +1,6 @@
+### 1.8
+* Added 64-bit support
+
 ### 1.7.1
 * Fixed bug with refund amount, now accepts amounts in dollar and cents
 
