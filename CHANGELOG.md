@@ -1,3 +1,6 @@
+### 1.8.3
+* Additional fix for file corruption
+
 ### 1.8.2
 * Fix for file corruption
 
