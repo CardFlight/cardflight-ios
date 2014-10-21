@@ -53,7 +53,7 @@ Add **CardFlight.h** to your AppDelegate and set the API Key and Account Token.
 ##### Example
 
 ```
-#import "CardFlight.h"
+#import <CardFlight/CardFlight.h>
 [[CFTSessionManager sharedInstance] setAPIToken:@"e9cb15260f08e438b782952895d4ba4d"
                            		   AccountToken:@"acc_04ff8bf654afb265"];
 ```
