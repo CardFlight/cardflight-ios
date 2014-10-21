@@ -54,8 +54,8 @@ Add **CardFlight.h** to your AppDelegate and set the API Key and Account Token.
 
 ```
 #import "CardFlight.h"
-[[CardFlight sharedInstance] setAPIToken:@"e9cb15260f08e438b782952895d4ba4d"
-                            AccountToken:@"acc_04ff8bf654afb265"];
+[[CFTSessionManager sharedInstance] setAPIToken:@"e9cb15260f08e438b782952895d4ba4d"
+                           		   AccountToken:@"acc_04ff8bf654afb265"];
 ```
 
 The CardFlight SDK is broken into easy-to-manage components. You just include the ones that you want to use in the header files of the classes that need to access those components.
