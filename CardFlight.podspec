@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "CardFlight"
-  s.version               = "1.8"
+  s.version               = "1.8.1"
   s.summary               = "CardFlight's iOS SDK Library"
   s.homepage              = "https://getcardflight.com"
   s.author                = { "CardFlight" => "support@getcardflight.com" }
@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
   s.source                = { :git => "https://github.com/CardFlight/cardflight-ios.git", :tag => s.version.to_s }
   s.preserve_paths        = 'libCardFlightLibrary.a'
   s.frameworks            = 'AVFoundation', 'AudioToolbox', 'MediaPlayer', 'MessageUI'
-  s.library               = 'CardFlightLibrary'
   s.requires_arc          = true
   s.xcconfig              =  { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/CardFlight"' }
   s.default_subspec       = 'AudioJack'

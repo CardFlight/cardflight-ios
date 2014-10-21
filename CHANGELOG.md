@@ -1,3 +1,6 @@
+### 1.8.1
+* Fixed Attache reader supspec
+
 ### 1.8
 * Added 64-bit support
 
