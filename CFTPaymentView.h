@@ -27,6 +27,11 @@
 @property (nonatomic, weak) id<CFTPaymentViewDelegate> delegate;
 
 /**
+ * Constructor with option to prompt for a zip code in manual entry
+ */
+- (instancetype)initWithFrame:(CGRect)frame enableZip:(BOOL)zipEnabled;
+
+/**
  * Sends the custom manual entry textfields the resignFirstResponder
  * message.
  */

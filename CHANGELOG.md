@@ -1,3 +1,7 @@
+### 1.9
+* Added methods for auth and capture
+* Added optional zip code to manual entry
+
 ### 1.8.3
 * Additional fix for file corruption
 

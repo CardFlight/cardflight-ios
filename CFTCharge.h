@@ -35,6 +35,17 @@
                       failure:(void(^)(NSError *error))failure;
 
 /**
+ * Capture a previously authorized charge
+ * by passing the charge token and the amount
+ * to capture. If the amount is nil then amount
+ * of the original authorization will be captured.
+ */
++ (void)captureChargeWithToken:(NSString *)token
+                     andAmount:(NSDecimalNumber *)amount
+                       success:(void(^)(CFTCharge *charge))success
+                       failure:(void(^)(NSError *error))failure;
+
+/**
  * Void a charge and post to the CardFlight servers
  */
 - (void)voidChargeWithSuccess:(void(^)())success

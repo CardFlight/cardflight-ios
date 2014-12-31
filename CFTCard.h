@@ -51,6 +51,21 @@ typedef enum CFCardType {
                          failure:(void(^)(NSError *error))failure;
 
 /**
+ * Method to authorize a card for later capture
+ *
+ * authorizeDictionary parameters:
+ *      amount - NSDecimalNumber containing amount to charge
+ *      description - Optional - NSString of charge description
+ *      customer_id - Optional - NSString of customer ID being charged
+ *      currency - Optional - NSString of currency code, defaults to USD
+ *      merchant_id - Optional - NSString of Braintree submerchant ID
+ *      service_fee - Optional - NSDecimalNumber containing the fee to charge
+ */
+- (void)authorizeCardWithParameters:(NSDictionary *)authorizeDictionary
+                            success:(void(^)(CFTCharge *charge))success
+                            failure:(void(^)(NSError *error))failure;
+
+/**
  * Method to create a card token that can be saved and used later.
  * On success the cardToken variable contains a value that can
  * be stored and used later.
