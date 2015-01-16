@@ -1,3 +1,6 @@
+### 1.9.1
+* Added fix for connecting to iPhone 6/6 Plus
+
 ### 1.9
 * Added methods for auth and capture
 * Added optional zip code to manual entry
