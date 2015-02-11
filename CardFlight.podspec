@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "CardFlight"
-  s.version               = "1.9.1"
+  s.version               = "1.9.2"
   s.summary               = "CardFlight's iOS SDK Library"
   s.homepage              = "https://getcardflight.com"
   s.author                = { "CardFlight" => "support@getcardflight.com" }
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.license = {
     :type => 'commercial',
-    :text => 'Copyright 2013 Cardflight, Inc. All rights reserved.'
+    :text => 'Copyright 2015 Cardflight, Inc. All rights reserved.'
   }
 
   s.subspec 'AudioJack' do |audiojack|
