@@ -1,4 +1,7 @@
 ### 2.0
+* Bug fix for beginSwipe method
+
+### 2.0
 * Added support for multiple readers
 * Added new transaction method
 * Added new CFTReader delegate methods
