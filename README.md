@@ -20,14 +20,14 @@ Setup
 ##### Podfile
 
 ```ruby
-platform :ios, '7.0'
+platform :ios, '8.0'
 pod "CardFlight"
 ```
 
 If you want to use the Attache reader (30 pin or lightning) then you must use the Attache subspec of the pod
 
 ```ruby
-platform :ios, '7.0'
+platform :ios, '8.0'
 pod "CardFlight/Attache"
 ```
 
@@ -40,11 +40,19 @@ Add the **libCardFlightLibrary.a** and all header files into your project. Add t
 - MediaPlayer.framework 
 - MessageUI.framework 
 - CoreGraphics.framework
+- libstdc++.6.0.9.dylib
+
+If using the Attache library you must include:
+
 - ExternalAccessory.framework
 
 ### Logging
 
 The SDK includes a logging mode to assist with debugging that will print out statements in the console. Be sure to disable it in the production code.
+
+```
+- (void)setLogging:(BOOL)logging;
+```
 
 ### Initialize
 
@@ -53,9 +61,8 @@ Add **CardFlight.h** to your AppDelegate and set the API Key and Account Token.
 ##### Example
 
 ```
-#import <CardFlight/CardFlight.h>
 [[CFTSessionManager sharedInstance] setAPIToken:@"e9cb15260f08e438b782952895d4ba4d"
-                           		   AccountToken:@"acc_04ff8bf654afb265"];
+AccountToken:@"acc_04ff8bf654afb265"];
 ```
 
 The CardFlight SDK is broken into easy-to-manage components. You just include the ones that you want to use in the header files of the classes that need to access those components.
@@ -83,5 +90,4 @@ Looking for Android?
 -----------------
 
 We've got you covered. [Click here](https://github.com/CardFlight/cardflight-android) to learn more about our CardFlight Android SDK. 
-
 

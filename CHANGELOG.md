@@ -1,3 +1,9 @@
+### 2.0
+* Added support for multiple readers
+* Added new transaction method
+* Added new CFTReader delegate methods
+* Removed all previously deprecated methods
+
 ### 1.9.1
 * Added fix for connecting to iPhone 6/6 Plus
 
