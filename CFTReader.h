@@ -161,7 +161,7 @@
 
 /*
  * Optional method to set whether reader times out while waiting
- * for a swipe. Default is YES.
+ * for a swipe after 20 seconds. Default is YES.
  *
  * Added in 2.0
  */
@@ -222,7 +222,7 @@
  * been reached.
  *
  * THIS WILL BE REMOVED IN A LATER RELEASE
- * Deprecated in 2.0, please use cancelSwipe instead.
+ * Deprecated in 2.0, please use cancelTransaction instead.
  */
 - (void)cancelSwipeWithMessage:(NSString *)message __deprecated;
 

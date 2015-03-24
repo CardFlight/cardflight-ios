@@ -1,4 +1,8 @@
-### 2.0
+### 2.0.2
+* Documentation clarification
+* Improved reader connection times
+
+### 2.0.1
 * Bug fix for beginSwipe method
 
 ### 2.0
