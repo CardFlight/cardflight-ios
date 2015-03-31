@@ -1,4 +1,7 @@
 ### 2.0.2
+* Improved reader connection reliability
+
+### 2.0.2
 * Documentation clarification
 * Improved reader connection times
 
