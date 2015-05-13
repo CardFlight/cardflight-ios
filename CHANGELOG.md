@@ -1,3 +1,6 @@
+### 2.0.4
+* Fix for multiple transactions in a row
+
 ### 2.0.2
 * Improved reader connection reliability
 
