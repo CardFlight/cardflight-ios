@@ -1,3 +1,8 @@
+### 2.0.5
+* Update to EMV backend
+* Fix for last4 when card number is blank
+* Added ability to save log statements to a file
+
 ### 2.0.4
 * Fix for multiple transactions in a row
 
