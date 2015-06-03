@@ -1,3 +1,6 @@
+### 2.0.6
+* Update to expiration date
+
 ### 2.0.5
 * Update to EMV backend
 * Fix for last4 when card number is blank
