@@ -1,3 +1,9 @@
+### 3.0
+* Added EMV support
+* Added iOS 9 support
+* Removed iOS 6 support
+* Added bitcode support
+
 ### 2.0.6
 * Update to expiration date
 
