@@ -84,20 +84,4 @@
  */
 - (void)setLogging:(BOOL)logging;
 
-// ******************** DEPRECATED ********************
-
-/*!
- * @discussion Convenience method to return the current API token.
- * Deprecated in 2.0, please use apiToken instead.
- * @warning THIS WILL BE REMOVED IN THE NEXT RELEASE
- */
-- (NSString *)getApiToken __deprecated;
-
-/*!
- * @discussion Convenience method to return the current Account token.
- * Deprecated in 2.0, please use accountToken instead.
- * @warning THIS WILL BE REMOVED IN THE NEXT RELEASE
- */
-- (NSString *)getAccountToken __deprecated;
-
 @end

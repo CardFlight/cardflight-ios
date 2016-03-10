@@ -1,3 +1,7 @@
+### 3.1
+* Cleaned up compiler warnings
+* Added destroy reader method
+
 ### 3.0
 * Added EMV support
 * Added iOS 9 support

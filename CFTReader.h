@@ -203,28 +203,10 @@
  * @discussion Optional protocol method that gets called when a transaction has completed.
  * Returns a CFTCharge on success and a NSError on failure.
  *
- * THIS WILL BE REMOVED IN A LATER RELEASE
+ * THIS WILL BE REMOVED THE NEXT RELEASE
  * Deprecated in 3.0, please use emvTransactionResult instead
  */
 - (void)transactionResult:(CFTCharge *)charge withError:(NSError *)error __deprecated;
-
-/*!
- * @discussion Optional protocol method that gets called after the serial number
- * of the hardware reader has been retrieved.
- *
- * THIS WILL BE REMOVED IN THE NEXT RELEASE
- * Deprecated in 2.0.
- */
-- (void)readerSerialNumber:(NSString *)serialNumber __deprecated;
-
-/*!
- * @discussion Optional protocol method that gets called in a non credit card is
- * swiped. The raw data from swipe is passed without any processing.
- *
- * THIS WILL BE REMOVED IN THE NEXT RELEASE
- * Deprecated in 2.0.
- */
-- (void)readerGenericResponse:(NSString *)cardData __deprecated;
 
 @end
 
@@ -284,6 +266,14 @@
  */
 - (CFTReaderState)readerState;
 
+
+/*!
+ * @brief Safely stop reader
+ * @discussion Stop reader action in safe manner and clear all delegates.
+ * Added in 3.1
+ */
+- (void)destroy;
+
 // **************** EMV RELATED METHODS ****************
 
 /*!
@@ -342,7 +332,7 @@
 - (void)emvTransactionSignature:(NSData *)signatureData;
 
 /*!
- * @bried Get default text for an EMV message category
+ * @brief Get default text for an EMV message category
  * @param message CFTEMVMessage to get the default text for
  * @return English language string containing the default text
  * @discussion CFTEMVMessages are enumerations of a category of message types.
@@ -372,38 +362,10 @@
  *      service_fee - Optional - NSDecimalNumber containing the fee to charge
  *                    ** Not currently supported for EMV, use for mag stripe only **
  *
- * THIS WILL BE REMOVED IN A LATER RELEASE
+ * THIS WILL BE REMOVED IN THE NEXT RELEASE
  * Deprecated in 3.0
  */
 - (NSError *)beginTransactionWithAmount:(NSDecimalNumber *)amount
                     andChargeDictionary:(NSDictionary *)chargeDictionary __deprecated;
-
-/*!
- * @discussion Optional method to set the duration before a swipe command will
- * timeout. Setting the duration to 0 will cause the swipe to never timeout.
- *
- * THIS WILL BE REMOVED IN THE NEXT RELEASE
- * Deprecated in 2.0, please use swipeHasTimeout instead.
- */
-- (void)swipeTimeoutDuration:(NSInteger)duration __deprecated;
-
-/*!
- * @discussion Manually cancel the swipe process before the timeout duration has
- * been reached.
- *
- * THIS WILL BE REMOVED IN THE NEXT RELEASE
- * Deprecated in 2.0, please use cancelTransaction instead.
- */
-- (void)cancelSwipeWithMessage:(NSString *)message __deprecated;
-
-/*!
- * @discussion Communicate with the hardware reader and retrieve the serial number.
- * The hardware reader must not be performing any other functions.
- * Returns YES if command is successfully started, NO otherwise.
- *
- * THIS WILL BE REMOVED IN THE NEXT RELEASE
- * Deprecated in 2.0, please use cancelSwipe instead.
- */
-- (BOOL)retrieveSerialNumber __deprecated;
 
 @end
