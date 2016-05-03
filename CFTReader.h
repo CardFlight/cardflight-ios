@@ -197,17 +197,6 @@
  */
 - (void)callback:(NSDictionary *)parameters;
 
-// ******************** DEPRECATED ********************
-
-/*!
- * @discussion Optional protocol method that gets called when a transaction has completed.
- * Returns a CFTCharge on success and a NSError on failure.
- *
- * THIS WILL BE REMOVED THE NEXT RELEASE
- * Deprecated in 3.0, please use emvTransactionResult instead
- */
-- (void)transactionResult:(CFTCharge *)charge withError:(NSError *)error __deprecated;
-
 @end
 
 @interface CFTReader : NSObject
@@ -245,7 +234,8 @@
  * @brief Set the reader to auto timeout after 20 seconds
  * @param hasTimeout BOOL to set timeout on or off
  * @discussion Optional method to set whether reader times out while waiting
- * for a swipe after 20 seconds. Default is YES.
+ * for a swipe after 20 seconds. Default is YES. Note: This method has
+ * no effect during an EMV transaction.
  * Added in 2.0
  */
 - (void)swipeHasTimeout:(BOOL)hasTimeout;
@@ -325,11 +315,15 @@
 /*!
  * @brief Attach a signature to an EMV transaction
  * @param signatureData NSData of a base64 encoded image
+ * @param success Success block called if transaction is uploaded
+ * @param failure Failure block called with NSError is transaction fails to upload
  * @discussion If the transaction requires a signatue as indicated in
  * emvTransactionResult this method is used to attach the signature.
- * Added in 3.0
+ * Updated in 3.2
  */
-- (void)emvTransactionSignature:(NSData *)signatureData;
+- (void)emvTransactionSignature:(NSData *)signatureData
+                        success:(void(^)(void))success
+                        failure:(void(^)(NSError *error))failure;
 
 /*!
  * @brief Get default text for an EMV message category
@@ -341,31 +335,5 @@
  * Added in 3.0
  */
 - (NSString *)defaultMessageForCFTEMVMessage:(CFTEMVMessage)message;
-
-// ******************** DEPRECATED ********************
-
-/*!
- * @discussion Set the hardware reader to begin waiting to receive a swipe or
- * starts an EMV transaction. Does NOT return a card object, the charge
- * is made immediately.
- *
- * Returns an error if an invalid charge dictionary is passed or amount is
- * not passed.
- *
- * chargeDictionary parameters:
- *      description - Optional - NSString of charge description
- *      customer_id - Optional - NSString of customer ID being charged
- *      currency - Optional - NSString of ISO 3166-1 numeric currency code,
- *                 ** 840 (USD) is the default and only currently supported currency **
- *      merchant_id - Optional - NSString of Braintree submerchant ID
- *                    ** Not currently supported for EMV, use for mag stripe only **
- *      service_fee - Optional - NSDecimalNumber containing the fee to charge
- *                    ** Not currently supported for EMV, use for mag stripe only **
- *
- * THIS WILL BE REMOVED IN THE NEXT RELEASE
- * Deprecated in 3.0
- */
-- (NSError *)beginTransactionWithAmount:(NSDecimalNumber *)amount
-                    andChargeDictionary:(NSDictionary *)chargeDictionary __deprecated;
 
 @end

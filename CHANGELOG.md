@@ -1,3 +1,9 @@
+### 3.2
+* Fixed Card Removed error (issue 32)
+* Added completion callback after setting API Key and Account Token (issue 34)
+* Fixed EMV Messaging (issue 35, 38)
+* Improved EMV Reader connection logic (issue 36)
+
 ### 3.1
 * Cleaned up compiler warnings
 * Added destroy reader method
