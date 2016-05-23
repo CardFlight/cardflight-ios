@@ -1,3 +1,8 @@
+### 3.2.1
+* Fix for EMV signature method
+* Restored functionality to deprecated setAPIKey method (issue 46)
+* Deprecated attache reader class. Support for this reader type will be removed in a future release. Please contact support@cardflight.com if you need an alternative solution
+
 ### 3.2
 * Fixed Card Removed error (issue 32)
 * Added completion callback after setting API Key and Account Token (issue 34)
