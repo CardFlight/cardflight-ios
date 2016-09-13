@@ -24,27 +24,17 @@ platform :ios, '8.0'
 pod "CardFlight"
 ```
 
-If you want to use the Attache reader (30 pin or lightning) then you must use the Attache subspec of the pod
-
-```ruby
-platform :ios, '8.0'
-pod "CardFlight/Attache"
-```
-
 ### Manual Installation
 
 Add the **libCardFlightLibrary.a** and all header files into your project. Add the following frameworks to you project:
 
-- AVFoundation.framework 
-- AudioToolbox.framework 
-- MediaPlayer.framework 
-- MessageUI.framework 
+- AVFoundation.framework
+- AudioToolbox.framework
+- MediaPlayer.framework
+- MessageUI.framework
 - CoreGraphics.framework
-- libstdc++.6.0.9.dylib
-
-If using the Attache library you must include:
-
 - ExternalAccessory.framework
+- libstdc++.6.0.9.dylib
 
 ### Logging
 
@@ -83,11 +73,10 @@ SDK Documentation
 Supported Platforms
 -----------------------
 
-All CardFlight readers work on **iOS version 6.1 or above**. Our SDK supports a wide array of iOS platforms. [Click here](https://developers.cardflight.com/docs/ios) to view an updated list.
+All CardFlight readers work on **iOS version 8.0 or above**. Our SDK supports a wide array of iOS platforms. [Click here](https://developers.cardflight.com/docs/ios) to view an updated list.
 
 
 Looking for Android?
 -----------------
 
-We've got you covered. [Click here](https://github.com/CardFlight/cardflight-android) to learn more about our CardFlight Android SDK. 
-
+We've got you covered. [Click here](https://github.com/CardFlight/cardflight-android) to learn more about our CardFlight Android SDK.

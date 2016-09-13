@@ -1,3 +1,12 @@
+### 3.5
+* Added support for Bluetooth readers
+* Add ability to charge a vaulted card
+* Wrapped up commlink error from A200 (issue 42)
+* Fix for crash on signature upload (issue 56)
+* Added error for no audio permissions in the host app
+* Updated enumerations
+* Updated keyed entry view touch target
+
 ### 3.2.1
 * Fix for EMV signature method
 * Restored functionality to deprecated setAPIKey method (issue 46)

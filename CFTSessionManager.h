@@ -31,6 +31,7 @@
 
 @interface CFTSessionManager : NSObject
 @property (nonatomic, readonly) BOOL isEMVMerchantAccount;
+@property (nonatomic, readonly) BOOL isNFCMerchantAccount;
 @property (nonatomic, weak) id <CFTSessionProtocol> delegate;
 
 /*!
@@ -96,7 +97,7 @@
  * needs to be called once, most likely in applicationDidFinishLaunching, but
  * it can be called multiple times to use different credentials.
  *
- * THIS WILL BE REMOVED IN A FUTURE RELEASE
+ * THIS WILL BE REMOVED IN THE NEXT RELEASE
  * Deprecated in 3.2
  */
 - (void)setApiToken:(NSString *)cardFlightApiToken

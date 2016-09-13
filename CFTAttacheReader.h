@@ -68,8 +68,8 @@
 @end
 
 __deprecated_msg("Attache reader support is deprecated, please contact support@cardflight.com for alternatives")
-/*
- * THIS CLASS WILL BE REMOVED IN A LATER RELEASE
+/*!
+ * THIS CLASS WILL BE REMOVED THE NEXT RELEASE
  * Deprecated in 3.2.1
  */
 @interface CFTAttacheReader : NSObject

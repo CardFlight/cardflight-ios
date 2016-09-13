@@ -14,6 +14,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <ExternalAccessory/ExternalAccessory.h>
 #import "CFTEnum.h"
 @class CFTCard;
 @class CFTCharge;
@@ -57,7 +58,7 @@
  * a message be displayed to the user. These messages should be displayed
  * whenever possible.
  * Required for EMV transactions.
- * Added in 2.0
+ * Updated in 3.5
  */
 - (void)emvMessage:(CFTEMVMessage)message;
 
@@ -123,6 +124,17 @@
 
 // ****************  END OF REQUIRED CALLBACKS FOR EMV  ****************
 
+/**
+ * @brief Callback with card vault ID from a transaction
+ * @param vaultID The vault ID associated with the card
+ * @discussion This callback is triggered when an EMV transaction
+ * begins processing. The vault ID is associated with the card used,
+ * and is useful for future transactions.
+ *
+ * Added in 3.5
+ */
+- (void)emvTransactionVaultID:(NSString *)vaultID;
+
 /*!
  * @brief Callback for when a swiped card is generated
  * @param card CFTCard that was generated from the swipe
@@ -149,6 +161,15 @@
  * Added in 2.0
  */
 - (void)readerIsConnecting;
+
+/*!
+ * @brief Callback for when a reader is performing a required update
+ * @discussion This callback is triggered when a reader has detected that
+ * a required update is available. The transaction will resume after the update
+ * and a readerIsConnected callback is triggered.
+ * Added in 3.5
+ */
+- (void)readerIsUpdating;
 
 /*!
  * @brief Callback for when the SDK completes the connection process
@@ -192,10 +213,15 @@
  */
 - (void)readerNotDetected;
 
+// ******************** DEPRECATED ********************
+
 /*!
  * @brief For internal use only
+ *
+ * THIS WILL BE REMOVED IN THE NEXT RELEASE
+ * Deprecated in 3.1
  */
-- (void)callback:(NSDictionary *)parameters;
+- (void)callback:(NSDictionary *)parameters __deprecated;
 
 @end
 
@@ -210,17 +236,61 @@
  * reader being used for faster connections. Defaults to auto connect.
  * Added in 2.0
  */
-- (id)initWithReader:(NSUInteger)reader;
+- (instancetype)initWithReader:(CFTReaderType)reader;
+
+/*!
+ * @brief Toggle use of a bluetooth reader
+ * @param useBluetooth BOOL to set bluetooth mode on or off.
+ * @discussion In order to use a bluetooth reader this method must be called
+ * with the paramter YES or the SDK will not attempt a bluetooth connection.
+ * Connections can only be made to devices already paired with the host iOS device.
+ * Added in 3.5
+ */
+- (void)useBluetoothReader:(BOOL)useBluetooth;
+
+/*!
+ * @brief Attempt a connection with the supplied bluetooth reader
+ * @discussion Attempt to connect a bluetooth reader to the SDK. The reader must
+ * already be paired with the iOS device. If the connection process fails, additional
+ * attempts will not be made until this method is called.
+ * Added in 3.5
+ */
+- (void)connectBluetoothReader;
+
+/*!
+ * @brief Disconnect the connected bluetooth reader
+ * @discussion If there is a bluetooth reader currently connected, this method
+ * will disconnect it from the SDK.
+ * Added in 3.5
+ */
+- (void)disconnectBluetoothReader;
+
+/*!
+ * @brief Clear transaction result and disconnect bluetooth reader
+ * @discussion If there is a transaction result, it will clear the result.
+ * The bluetooth reader will be disconnected afterwards.
+ * Added in 3.5
+ */
+- (void)clearTransactionResultAndDisconnectBluetoothReader;
 
 /*!
  * @brief Get the reader type of the currently connected reader
- * @return NSUInteger representing the current reader type
- * @discussion Method that returns the last connected reader type. This value
+ * @return CFTReaderType representing the currently connected reader type
+ * @discussion Method that returns the currently connected reader type. This value
  * can be saved and passed back into initWithReader to shorten the
  * connection time.
- * Added in 2.0
+ * Added in 3.5
  */
-- (NSUInteger)readerType;
+- (CFTReaderType)connectedReader;
+
+/*!
+ * @brief Get the name of the connected bluetooth reader
+ * @return NSString representing the connected bluetooth reader
+ * @discussion Method that returns the name of the connected bluetooth
+ * reader, or nil if a bluetooth reader is not connected.
+ * Added in 3.5
+ */
+- (NSString *)connectedBluetoothReaderName;
 
 /*!
  * @brief Set the reader to begin waiting for a card swipe
@@ -256,7 +326,6 @@
  */
 - (CFTReaderState)readerState;
 
-
 /*!
  * @brief Safely stop reader
  * @discussion Stop reader action in safe manner and clear all delegates.
@@ -284,6 +353,27 @@
  */
 - (NSError *)beginEMVTransactionWithAmount:(NSDecimalNumber *)amount
                        andChargeDictionary:(NSDictionary *)chargeDictionary;
+
+/*!
+ * @brief Start an EMV transaction
+ * @param amount NSDecimalNumber of the amount to charge
+ * @param chargeDictionary NSDictionary of charge data for the transaction
+ * @param shouldVault BOOL used for card vaulting
+ * @return NSError if the transaction was unable to start
+ * @discussion Begin an EMV transaction with the requested amount. Does not return
+ * a card object. Processes the complete transaction and returns an
+ * emvTransactionResult.
+ * Returns an errror if unable to start the transaction.
+ *
+ * chargeDictionary parameters:
+ *      description - Optional - NSString of charge description
+ *      metadata - Optional - NSDictionary of extra transaction information
+ *
+ * Added in 3.5
+ */
+- (NSError *)beginEMVTransactionWithAmount:(NSDecimalNumber *)amount
+                       andChargeDictionary:(NSDictionary *)chargeDictionary
+                               shouldVault:(BOOL)shouldVault;
 
 /*!
  * @brief Set the EMV transaction amount
@@ -332,8 +422,34 @@
  * @discussion CFTEMVMessages are enumerations of a category of message types.
  * This convienence method returns default text that can be used if you do not
  * wish to supply your own.
- * Added in 3.0
+ * Updated in 3.5
  */
-- (NSString *)defaultMessageForCFTEMVMessage:(CFTEMVMessage)message;
++ (NSString *)defaultMessageForCFTEMVMessage:(CFTEMVMessage)message;
+
+// ******************** DEPRECATED ********************
+
+/*!
+ * @brief Get the reader type of the currently connected reader
+ * @return NSUInteger representing the current reader type
+ * @discussion Method that returns the last connected reader type. This method
+ * is deprecated in favor of connectedReader
+ * Deprecated in 3.5
+ *
+ * THIS WILL BE REMOVED IN A LATER RELEASE
+ */
+- (NSUInteger)readerType __deprecated;
+
+/*!
+ * @brief Get default text for an EMV message category
+ * @param message CFTEMVMessage to get the default text for
+ * @return English language string containing the default text
+ * @discussion CFTEMVMessages are enumerations of a category of message types.
+ * This convienence method returns default text that can be used if you do not
+ * wish to supply your own.
+ * Deprecated in 3.5
+ *
+ * THIS WILL BE REMOVED IN A LATER RELEASE
+ */
+- (NSString *)defaultMessageForCFTEMVMessage:(CFTEMVMessage)message __deprecated;
 
 @end
