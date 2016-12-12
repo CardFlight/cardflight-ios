@@ -1,3 +1,13 @@
+### 3.5.1
+* Remove support for Attache reader
+* Fixed transaction result not being returned on cancelled EMV transaction  (issue 64)
+* Improved messaging on prematurely disconnected A200 reader (issue 47)
+* Voids and Refunds now accept callback URLs
+* Added ability to start contact transaction on B550 with card inserted
+* Fix vault feature
+* Added support for receipt data from a CFTCharge
+* Removed subspecs from podspec
+
 ### 3.5
 * Added support for Bluetooth readers
 * Add ability to charge a vaulted card

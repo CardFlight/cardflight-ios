@@ -339,25 +339,6 @@
  * @brief Start an EMV transaction
  * @param amount NSDecimalNumber of the amount to charge
  * @param chargeDictionary NSDictionary of charge data for the transaction
- * @return NSError if the transaction was unable to start
- * @discussion Begin an EMV transaction with the requested amount. Does not return
- * a card object. Processes the complete transaction and returns an
- * emvTransactionResult.
- * Returns an errror if unable to start the transaction.
- *
- * chargeDictionary parameters:
- *      description - Optional - NSString of charge description
- *      metadata - Optional - NSDictionary of extra transaction information
- *
- * Added in 3.0
- */
-- (NSError *)beginEMVTransactionWithAmount:(NSDecimalNumber *)amount
-                       andChargeDictionary:(NSDictionary *)chargeDictionary;
-
-/*!
- * @brief Start an EMV transaction
- * @param amount NSDecimalNumber of the amount to charge
- * @param chargeDictionary NSDictionary of charge data for the transaction
  * @param shouldVault BOOL used for card vaulting
  * @return NSError if the transaction was unable to start
  * @discussion Begin an EMV transaction with the requested amount. Does not return
@@ -422,11 +403,32 @@
  * @discussion CFTEMVMessages are enumerations of a category of message types.
  * This convienence method returns default text that can be used if you do not
  * wish to supply your own.
- * Updated in 3.5
+ * Added in 3.5
  */
 + (NSString *)defaultMessageForCFTEMVMessage:(CFTEMVMessage)message;
 
 // ******************** DEPRECATED ********************
+
+/*!
+ * @brief Start an EMV transaction
+ * @param amount NSDecimalNumber of the amount to charge
+ * @param chargeDictionary NSDictionary of charge data for the transaction
+ * @return NSError if the transaction was unable to start
+ * @discussion Begin an EMV transaction with the requested amount. Does not return
+ * a card object. Processes the complete transaction and returns an
+ * emvTransactionResult.
+ * Returns an errror if unable to start the transaction.
+ *
+ * chargeDictionary parameters:
+ *      description - Optional - NSString of charge description
+ *      metadata - Optional - NSDictionary of extra transaction information
+ *
+ * Deprecated in 3.5
+ *
+ * THIS WILL BE REMOVED IN THE NEXT RELEASE
+ */
+- (NSError *)beginEMVTransactionWithAmount:(NSDecimalNumber *)amount
+                       andChargeDictionary:(NSDictionary *)chargeDictionary;
 
 /*!
  * @brief Get the reader type of the currently connected reader
@@ -435,7 +437,7 @@
  * is deprecated in favor of connectedReader
  * Deprecated in 3.5
  *
- * THIS WILL BE REMOVED IN A LATER RELEASE
+ * THIS WILL BE REMOVED IN THE NEXT RELEASE
  */
 - (NSUInteger)readerType __deprecated;
 
@@ -448,7 +450,7 @@
  * wish to supply your own.
  * Deprecated in 3.5
  *
- * THIS WILL BE REMOVED IN A LATER RELEASE
+ * THIS WILL BE REMOVED IN THE NEXT RELEASE
  */
 - (NSString *)defaultMessageForCFTEMVMessage:(CFTEMVMessage)message __deprecated;
 

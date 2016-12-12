@@ -49,15 +49,17 @@
  * @brief Refund a charge
  * @param token Charge token to be refunded
  * @param amount NSDecimalNumber of amount to be refunded
+ * @param callbackURL NSURL of callback URL to trigger
  * @param success Block containing CFTCharge, executed on success
  * @param failure Block containing NSError, executed on failure
  * @discussion Refund a charge by passing in the charge token
  * and amount to refund in dollars and cents.
- * Added in 1.7
+ * Updated in 4.0
  * @warning Amount cannot exceed original charge amount
  */
 + (void)refundChargeWithToken:(NSString *)token
                     andAmount:(NSDecimalNumber *)amount
+                  callbackURL:(NSURL *)callbackURL
                       success:(void(^)(CFTCharge *charge))success
                       failure:(void(^)(NSError *error))failure;
 
@@ -80,14 +82,17 @@
 
 /*!
  * @brief Void a charge
+ * @param token Charge token to be voided
+ * @param callbackURL NSURL of callback URL to trigger
  * @param success Block executed on success, isVoided is set to YES
  * @param failure Block containing NSError, executed on failure
  * @discussion Void a charge that has not batched yet.
- * Updated in 3.0
+ * Updated in 4.0
  */
-+ (void)voidChargeWithWithToken:(NSString *)token
-                        success:(void(^)(void))success
-                        failure:(void(^)(NSError *error))failure;
++ (void)voidChargeWithToken:(NSString *)token
+                callbackURL:(NSURL *)callbackURL
+                    success:(void(^)(void))success
+                    failure:(void(^)(NSError *error))failure;
 
 /*!
  * @brief Upload a signature
@@ -104,5 +109,51 @@
                    signatureData:(NSData *)signatureData
                          success:(void(^)(void))success
                          failure:(void(^)(NSError *error))failure;
+
+/*!
+ * @brief Retrieve receipt data
+ * @param token Charge token of previously approved charge
+ * @param success Block containing dictionary of receipt data
+ * @param failure Block containing NSError, executed on failure
+ * @discussion Retrieve the data necessary to build a receipt for previously
+ * approved charge.
+ * Added in 3.5.1
+ */
++ (void)receiptDataWithToken:(NSString *)token
+                     success:(void(^)(NSDictionary *receiptData))success
+                     failure:(void(^)(NSError *error))failure;
+
+// ******************** DEPRECATED ********************
+
+/*!
+ * @brief Refund a charge
+ * @param token Charge token to be refunded
+ * @param amount NSDecimalNumber of amount to be refunded
+ * @param success Block containing CFTCharge, executed on success
+ * @param failure Block containing NSError, executed on failure
+ * @discussion Refund a charge by passing in the charge token
+ * and amount to refund in dollars and cents.
+ * Deprecated in 3.5.1
+ * @warning Amount cannot exceed original charge amount
+ *
+ * THIS WILL BE REMOVED IN A LATER RELEASE
+ */
++ (void)refundChargeWithToken:(NSString *)token
+                    andAmount:(NSDecimalNumber *)amount
+                      success:(void(^)(CFTCharge *charge))success
+                      failure:(void(^)(NSError *error))failure __deprecated;
+
+/*!
+ * @brief Void a charge
+ * @param success Block executed on success, isVoided is set to YES
+ * @param failure Block containing NSError, executed on failure
+ * @discussion Void a charge that has not batched yet.
+ * Deprecated in 3.5.1
+ *
+ * THIS WILL BE REMOVED IN A LATER RELEASE
+ */
++ (void)voidChargeWithWithToken:(NSString *)token
+                        success:(void(^)(void))success
+                        failure:(void(^)(NSError *error))failure __deprecated;
 
 @end

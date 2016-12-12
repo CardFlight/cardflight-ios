@@ -87,20 +87,4 @@
  */
 - (void)setLogging:(BOOL)logging;
 
-// ******************** DEPRECATED ********************
-
-/*!
- * @brief Set the API and account tokens for the session
- * @param cardFlightApiToken NSString of the API token
- * @param cardFlightAccountToken NSString of the account token
- * @discussion Sets the API account token for the entire session. This only
- * needs to be called once, most likely in applicationDidFinishLaunching, but
- * it can be called multiple times to use different credentials.
- *
- * THIS WILL BE REMOVED IN THE NEXT RELEASE
- * Deprecated in 3.2
- */
-- (void)setApiToken:(NSString *)cardFlightApiToken
-       accountToken:(NSString *)cardFlightAccountToken __deprecated;
-
 @end
